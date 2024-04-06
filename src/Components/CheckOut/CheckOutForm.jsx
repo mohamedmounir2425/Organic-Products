@@ -1,4 +1,5 @@
-import {  CardCvcElement, CardElement, CardExpiryElement, useElements, useStripe } from '@stripe/react-stripe-js'
+
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -111,7 +112,7 @@ const handleCardChange = (e)=>{
           <h3 className={`${style.MainColor} text-center  fw-bold text-capitalize my-3 mb-5`}>
           <i class="fa-regular fa-credit-card text-dark"></i> checkout
           </h3>
-          <p className=' fs-4 fw-semibold text-muted '>You are purchasing an <span>{ } name</span> for ${}price</p>
+          <p className=' fs-4 fw-semibold text-muted '>You are purchasing  for $ <span className='text-primary fw-semibold'>{totalPrice}</span> .</p>
           
           <form onSubmit={handlePayment} >
               <input onChange={handleChange} type="text" placeholder='Full Name' name='name' className='form-control p-2 mb-3' required value={credentials.name} />

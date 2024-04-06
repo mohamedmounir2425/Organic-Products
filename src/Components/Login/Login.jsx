@@ -1,7 +1,7 @@
 import axios from "axios";
 import Joi from "joi";
 import jwtDecode from "jwt-decode";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fireLogin } from "../../Store/login/loginSlice";
@@ -9,6 +9,15 @@ import style from "./Login.module.css"
 
 export default function Login() {
 
+  useEffect(()=>{
+    
+    if (localStorage.getItem("token")) {
+      
+        localStorage.removeItem("token");
+       
+    } 
+
+  },[])
 
   const [user, setUser] = useState({email: "", password: ""})
   const [apiMsg, setApiMsg] = useState('')
@@ -78,7 +87,7 @@ export default function Login() {
 
         let userData = jwtDecode(localStorage.getItem('token'))
         if (userData.first_name === "Admin") {
-             navigate('/admin/tableP1')
+             navigate('/admin/mainTable/vegetable')
         } else {
           navigate('/home')
           

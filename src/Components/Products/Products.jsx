@@ -44,8 +44,8 @@ export default function Products() {
   }
   return (
     <>
-      <section className={`${style.secBg} bg-primary`}>
-        <div className={`bg-danger position-relative bg-danger `}>
+      <section className={`${style.secBg} `}>
+        <div className={`bg-danger position-relative  `}>
 
 
           <div className={`${style.cover} w-100 poition-absolute top-0 end-0 start-0`}></div>

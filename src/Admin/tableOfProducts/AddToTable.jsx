@@ -8,7 +8,7 @@ export default function AddToTable() {
 
 
     let { type,id } = useParams();
-    console.log(id)
+   
     let [formValue, setFormValue] = useState({
 
         type: type,
@@ -25,13 +25,13 @@ export default function AddToTable() {
     const addNewProduct = (e) => {
         e.preventDefault()
         console.log(formValue)
-        dispatch(addProducts({type,formValue})).then(navigate(`/${type}`)).catch((err) => { })
+        dispatch(addProducts({type,formValue})).then(navigate(`/products/${type}`)).catch((err) => { })
 
     }
     const editeProduct = (e) => {
         e.preventDefault()
         console.log(formValue)
-        dispatch(editeProducts({type, id, formValue })).then(navigate(`/${type}`)).catch((err) => { })
+        dispatch(editeProducts({type, id, formValue })).then(navigate(`/products/${type}`)).catch((err) => { })
 
     }
 
@@ -41,7 +41,7 @@ export default function AddToTable() {
             [target.name]: target.value
         })
     }
-    let { edited } = useSelector((state) => state.vegetablesSlice)
+    
 
 
 

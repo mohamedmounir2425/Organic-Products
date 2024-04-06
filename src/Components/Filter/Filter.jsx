@@ -10,38 +10,38 @@ export default function Filter() {
                   <p className={`${style.filterSection} fs-2 fw-semibold mb-5`}> <i>Explore our sustainable online store</i> </p>
                   <div className="row g-5 ">
                       <div className="col-md-4 col-sm-6">
-                          <div onClick={()=>navigate('/vegetables')} className={`${style.title ,style.curserPointer} position-relative `}>
+                          <div onClick={()=>navigate('products/vegetable')} className={`${style.title ,style.curserPointer} position-relative `}>
                               <img src="images/vegitables.jpg" alt="" />
                               <div className={`${style.caption} fs-4 fw-semibold  translate-middle py-1`}> <i>Vegetables</i> </div>
                           </div>
                       </div>
 
                       <div className="col-md-4 col-sm-6">
-                          <div onClick={()=>navigate('/fruits')} className={`${style.title,style.curserPointer} position-relative`}>
+                          <div onClick={()=>navigate('products/fruits')} className={`${style.title,style.curserPointer} position-relative`}>
                               <img src="images/fruits.jpg" alt="" />
                               <div className={`${style.caption} fs-4 fw-semibold  translate-middle py-1`}> <i>Fruits</i> </div>
                           </div>
                       </div>
                       <div className="col-md-4 col-sm-6">
-                          <div onClick={()=>navigate('/milk')} className={`${style.title  ,style.curserPointer} position-relative`}>
+                          <div onClick={()=>navigate('products/milk')} className={`${style.title  ,style.curserPointer} position-relative`}>
                               <img src="images/milk.jpg" alt="" />
                               <div className={`${style.caption} fs-4 fw-semibold  translate-middle py-1`}> <i>Milk</i> </div>
                           </div>
                       </div>
                       <div className="col-md-4 col-sm-6">
-                          <div onClick={()=>navigate('/herbals')} className={`${style.title  ,style.curserPointer} position-relative`}>
+                          <div onClick={()=>navigate('products/herbals')} className={`${style.title  ,style.curserPointer} position-relative`}>
                               <img src="images/herbs.jpg" alt="" />
                               <div className={`${style.caption} fs-4 fw-semibold  translate-middle py-1`}> <i>Herbals</i> </div>
                           </div>
                       </div>
                       <div className="col-md-4 col-sm-6">
-                          <div onClick={()=>navigate('/meat')} className={`${style.title  ,style.curserPointer} position-relative`}>
+                          <div onClick={()=>navigate('products/meat')} className={`${style.title  ,style.curserPointer} position-relative`}>
                               <img src="images/meat.jpg" alt="" />
                               <div className={`${style.caption} fs-4 fw-semibold  translate-middle py-1`}> <i>Meat</i> </div>
                           </div>
                       </div>
                       <div className="col-md-4 col-sm-6">
-                          <div onClick={()=>navigate('/meals')} className={`${style.title  ,style.curserPointer} position-relative`}>
+                          <div onClick={()=>navigate('meals')} className={`${style.title  ,style.curserPointer} position-relative`}>
                               <img src="https://img.delicious.com.au/FhRD4JI0/del/2020/12/iceberg-with-dried-oregano-dressing-and-creamy-sheeps-milk-cheese-143662-2.jpg" alt="" />
                               <div className={`${style.caption} fs-4 fw-semibold translate-middle py-1`}> <i>Meals</i> </div>
                           </div>

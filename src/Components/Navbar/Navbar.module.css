@@ -82,3 +82,6 @@ ul li {
 .logout{
     cursor: pointer;
 }
+li{
+    text-align: center;
+}

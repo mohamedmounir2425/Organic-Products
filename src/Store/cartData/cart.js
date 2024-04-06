@@ -30,6 +30,7 @@ const cartSlice = createSlice({
         increamentItem: (state, action) => { 
 
             let exist = state.cartItem.find((elm)=>elm._id===action.payload._id)
+            console.log(state.cartItem)
             if (exist) {
                 console.log(`existtttttttttttt`)
                 let cart = state.cartItem.map((elm, index) => {
@@ -70,3 +71,5 @@ const cartSlice = createSlice({
 
 export let cartReducer = cartSlice.reducer;
 export let {increamentItem , decreamentItem,deleteItem} = cartSlice.actions;
+
+

@@ -16,11 +16,11 @@ import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import Contact from './Components/Contact/Contact';
 import Disease from './Components/Disease/Disease';
-import Vegetables from './Components/Products/Vegetables/Vegetables';
-import Fruits from './Components/Products/Fruits/Fruits';
-import Herbals from './Components/Products/Herbals/Herbals';
-import Meat from './Components/Products/Meat/Meat';
-import Milk from './Components/Products/Milk/Milk';
+// import Vegetables from './Components/Products/Vegetables/Vegetables';
+// import Fruits from './Components/Products/Fruits/Fruits';
+// import Herbals from './Components/Products/Herbals/Herbals';
+// import Meat from './Components/Products/Meat/Meat';
+// import Milk from './Components/Products/Milk/Milk';
 import Cart from './Components/Cart/Cart';
 import Heart from './Components/DiseaseItem/Heart';
 import Diabetes from './Components/DiseaseItem/Diabetes';
@@ -54,6 +54,15 @@ import MainTable from './Admin/tableOfProducts/MainTable';
 import AddToTable from './Admin/tableOfProducts/AddToTable';
 import DetailsProduct from './Admin/Details/DetailsProduct';
 import Products from './Components/Products/Products';
+import Meals from './Components/Products/Meals/Meals';
+import CheckOutForm from './Components/CheckOut/CheckOutForm';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+
+
+
+const stripePromise = loadStripe('pk_test_51Mhj4ZF6RLw7s1j1bKtC5YTPB5fkfLRpONNbKliEN5BzBH4q442DQ9IyWgRAjPOt2t5QxIncyHSguWinqlsV7JLs00jXTIhqNi')
 
 function App() {
 
@@ -64,7 +73,7 @@ function App() {
       {path:'home',element:<Home/>},
       {path:'cart',element:<Cart/>},
       {path:'about',element:<About/>},
-        // { path: 'products', element: <AllProducts /> },
+        { path: 'products', element: <AllProducts /> },
         { path: 'products/:type', element: <Products /> },
       
       // {path:'vegetables',element:<Vegetables/>},
@@ -72,6 +81,7 @@ function App() {
       // {path:'herbals',element:<Herbals/>},
       // {path:'meat',element:<Meat/>},
       // {path:'milk',element:<Milk/>},
+      {path:'meals',element:<Meals/>},
       {path:'login',element:<Login/>},
       {path:'register',element:<Register/>},
       {path:'contact',element:<Contact/>},
@@ -80,7 +90,8 @@ function App() {
       {path:'diabetes',element:<Diabetes/>},
       {path:'liver',element:<Liver/>},
       {path:'pressure',element:<Pressure/>},
-        { path: 'kidney', element: <Kidney /> },
+      { path: 'kidney', element: <Kidney /> },
+      { path: 'checkout', element: <CheckOutForm /> },
         
         
         { path: 'smallbox', element: <SmallBox /> },
@@ -140,8 +151,9 @@ function App() {
 
   return (
     <>
-     
+     <Elements stripe={stripePromise}>
       <RouterProvider router={routes}/>
+      </Elements>
       <ScrollToTop  smooth style={{backgroundColor:"#78A206",}} color="#fff"/>
 
     </>
