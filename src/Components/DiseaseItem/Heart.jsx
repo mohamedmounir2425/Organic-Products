@@ -1,36 +1,24 @@
-import React, { useEffect, useRef } from 'react'
-import Slider from 'react-slick';
-import DiseaseCard from './DiseaseCard';
-import style from './DiseaseItem.module.css'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import { useDispatch, useSelector } from 'react-redux';
-import { getDiseases } from '../../Store/Disease/Disease';
-import IsLoading from '../isLoading/IsLoading';
+import React, { useEffect, useRef } from "react";
+import Slider from "react-slick";
+import DiseaseCard from "./DiseaseCard";
+import style from "./DiseaseItem.module.css";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { getDiseases } from "../../Store/Disease/Disease";
+import IsLoading from "../isLoading/IsLoading";
 
 export default function Heart() {
+  const { diseases, isLoading } = useSelector((state) => state.diseasesSlice);
 
+  let data = diseases[0];
 
-  const { diseases, isLoading } = useSelector((state) => state.diseasesSlice)
-
-
-  let data = diseases[0]
-  
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getDiseases());
-  }, [])
+  }, []);
 
-
-
-
-
-
-
-
-
-  let arrowRef = useRef(null)
+  let arrowRef = useRef(null);
   var settings = {
     dots: true,
     infinite: false,
@@ -46,65 +34,77 @@ export default function Heart() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <>
-
-      <div className='container my-5'>
-        {diseases.length == 0 ? <IsLoading /> : <>
-          <div className='row align-items-center'>
-            <div className='col-md-4'>
-              <img src="images/diseases/heart.png" className='w-100' alt="diabetes" />
+      <div className="container my-5">
+        {diseases.length == 0 ? (
+          <IsLoading />
+        ) : (
+          <>
+            <div className="row align-items-center">
+              <div className="col-md-4">
+                <img
+                  src="images/diseases/heart.png"
+                  className="w-100"
+                  alt="diabetes"
+                />
+              </div>
+              <div className="col-md-8">
+                <h3 className="p-1 text-capitalize ">{data.type}</h3>
+                <h5 className="px-3">{data.question} :-</h5>
+                <ul className=" ">
+                  <li className=" pb-1">{data.answer[0]}.</li>
+                  <li className=" pb-1">{data.answer[1]}.</li>
+                  <li className=" pb-1">{data.answer[2]}.</li>
+                </ul>
+              </div>
             </div>
-            <div className='col-md-8'>
-              <h3 className='p-1 text-capitalize '>{data.type}</h3>
-              <h5 className='px-3'>{data.question} :-</h5>
-              <ul class=" ">
-                <li class=" pb-1">{data.answer[0]}.</li>
-                <li class=" pb-1">{data.answer[1]}.</li>
-                <li class=" pb-1">{data.answer[2]}.</li>
-              
-              </ul>
+            <h3 className="fs-3 mt-4">Related products :</h3>
 
+            <div className="row position-relative py-4">
+              <Slider ref={arrowRef} {...settings}>
+                {data.products.map((product, index) => {
+                  return <DiseaseCard key={product._id} product={product} />;
+                })}
+              </Slider>
+              <button className="btn text-white">
+                <button
+                  onClick={() => arrowRef.current.slickPrev()}
+                  className={`${(style.arrow, style.back)}`}
+                >
+                  <IoIosArrowBack />
+                </button>
+                <button
+                  onClick={() => arrowRef.current.slickNext()}
+                  className={`${style.arrow}`}
+                >
+                  <IoIosArrowForward />
+                </button>
+              </button>
             </div>
-          </div>
-          <h3 className='fs-3 mt-4'>Related products :</h3>
-
-
-          <div className='row position-relative py-4'>
-            <Slider ref={arrowRef} {...settings}>
-              {data.products.map((product, index) => {
-                return (<DiseaseCard key={product._id} product={product} />)
-            })}
-           
-            </Slider>
-            <button className='btn text-white'>
-              <button onClick={() => arrowRef.current.slickPrev()} className={`${style.arrow, style.back}`}><IoIosArrowBack /></button>
-              <button onClick={() => arrowRef.current.slickNext()} className={`${style.arrow}`}><IoIosArrowForward /></button>
-            </button>
-          </div>
-        </>}
+          </>
+        )}
       </div>
-
     </>
-  )
+  );
 }

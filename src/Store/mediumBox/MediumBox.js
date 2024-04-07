@@ -2,47 +2,45 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 let initialState = {
-    mediumBox: [],
-    errorMediumBox: null,
-    isLoading:false
-}
+  mediumBox: [],
+  errorMediumBox: null,
+  isLoading: false,
+};
 
-const baseUrl = 'http://localhost:8000/mediumBox'
+const baseUrl = "https://server-organic-product-2.onrender.com/mediumBox";
 
-export const getMediumBox = createAsyncThunk('mediumBox/getMediumBox',async(type, thunkApi) => {
-    const {rejectWithValue} =thunkApi
+export const getMediumBox = createAsyncThunk(
+  "mediumBox/getMediumBox",
+  async (type, thunkApi) => {
+    const { rejectWithValue } = thunkApi;
     try {
-        
-        const { data } = await axios.get(`${baseUrl}`)
-      
-        return data
-        
+      const { data } = await axios.get(`${baseUrl}`);
+
+      return data;
     } catch (error) {
-        return rejectWithValue(error.message)
+      return rejectWithValue(error.message);
     }
-})
+  }
+);
 
 let mediumBoxSlice = createSlice({
-    name: 'mediumBox',
-    initialState,
-    reducers: {
-        
+  name: "mediumBox",
+  initialState,
+  reducers: {},
+  extraReducers: {
+    [getMediumBox.pending]: (state, action) => {
+      state.isLoading = true;
     },
-    extraReducers: {
-        [getMediumBox.pending]: (state, action) => {
-            state.isLoading = true
-        },
-        [getMediumBox.fulfilled]: (state, action) => {
-            state.isLoading = false
-            state.mediumBox = action.payload
-        },
-        [getMediumBox.rejected]: (state, action) => {
-            state.isLoading = false
-            state.errorMediumBox = action.payload
-        },
-    }
-})
-
+    [getMediumBox.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.mediumBox = action.payload;
+    },
+    [getMediumBox.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.errorMediumBox = action.payload;
+    },
+  },
+});
 
 export const mediumBoxReducer = mediumBoxSlice.reducer;
 export const mediumBoxActions = mediumBoxSlice.actions;
