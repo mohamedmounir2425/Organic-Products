@@ -36,7 +36,7 @@ export default function Navbar() {
           <div className={`container-fluid justify-content-center`}>
             <a className="navbar-brand" href="#">
               {!isLogin ? (
-                <img src="images/Logo.png" alt="Bootstrap" width={150} />
+                <img src="images/logo/Logo.png" alt="Logo" width={150} />
               ) : (
                 <div className="d-flex align-items-center">
                   {" "}
@@ -62,7 +62,7 @@ export default function Navbar() {
           <div className={`container-fluid ${style.containerWidth}`}>
             <a className="navbar-brand d-none d-lg-block" href="#">
               {!isLogin ? (
-                <img src="images/Logo.png" alt="Bootstrap" width={150} />
+                <img src="images/logo/Logo.png" alt="Logo" width={150} />
               ) : (
                 <div className="d-flex align-items-center">
                   {" "}
