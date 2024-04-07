@@ -37,7 +37,7 @@ export default function Navbar() {
             <a className="navbar-brand" href="#">
               {!isLogin ? (
                 <img
-                  src="../../../public/images/logo/Logo.png"
+                  src={process.env.PUBLIC_URL + "/images/logo/Logo.png"}
                   alt="Logo"
                   width={150}
                 />
@@ -67,7 +67,7 @@ export default function Navbar() {
             <a className="navbar-brand d-none d-lg-block" href="#">
               {!isLogin ? (
                 <img
-                  src="../../../public/images/logo/Logo.png"
+                  src={process.env.PUBLIC_URL + "/images/logo/Logo.png"}
                   alt="Logo"
                   width={150}
                 />
