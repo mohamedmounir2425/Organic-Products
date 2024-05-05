@@ -7,7 +7,7 @@ let initialState = {
   isLoading: false,
 };
 
-const baseUrl = "https://server-organic-product-2.onrender.com/mediumBox";
+const baseUrl = "https://organic-product.onrender.com/mediumBox";
 
 export const getMediumBox = createAsyncThunk(
   "mediumBox/getMediumBox",

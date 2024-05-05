@@ -52,7 +52,7 @@ export default function CheckOutForm() {
 
     try {
       const paymentIntent = await axios.post(
-        "https://server-organic-product-2.onrender.com/payment",
+        "https://organic-product.onrender.com/payment",
         {
           amount: totalPrice * 100,
         }

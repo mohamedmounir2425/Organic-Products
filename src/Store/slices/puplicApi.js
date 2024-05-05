@@ -33,7 +33,7 @@ export const addProducts = createAsyncThunk(
       let { type, formValue } = product;
 
       const { data } = await axios.post(
-        `https://server-organic-product-2.onrender.com/${type}`,
+        `https://organic-product.onrender.com/${type}`,
         formValue
       );
 
@@ -51,7 +51,7 @@ export const deleteProducts = createAsyncThunk(
     try {
       let { type, id } = products;
       const { data } = await axios.delete(
-        `https://server-organic-product-2.onrender.com/${type}/${id}`
+        `https://organic-product.onrender.com/${type}/${id}`
       );
 
       return data;
@@ -69,7 +69,7 @@ export const editeProducts = createAsyncThunk(
       let { type, id, formValue } = product;
 
       const { data } = await axios.put(
-        `https://server-organic-product-2.onrender.com/${type}/${id}`,
+        `https://organic-product.onrender.com/${type}/${id}`,
         formValue
       );
 

@@ -7,7 +7,7 @@ let initialState = {
   isLoading: false,
 };
 
-const baseUrl = "https://server-organic-product-2.onrender.com/diseases";
+const baseUrl = "https://organic-product.onrender.com/diseases";
 
 export const getDiseases = createAsyncThunk(
   "diseases/getDiseases",

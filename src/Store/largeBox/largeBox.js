@@ -7,7 +7,7 @@ let initialState = {
   isLoading: false,
 };
 
-const baseUrl = "https://server-organic-product-2.onrender.com/largeBox";
+const baseUrl = "https://organic-product.onrender.com/largeBox";
 
 export const getLargeBox = createAsyncThunk(
   "largeBox/getLargeBox",
