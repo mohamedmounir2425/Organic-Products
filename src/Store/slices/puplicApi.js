@@ -8,7 +8,7 @@ let initialState = {
   edited: {},
 };
 
-const baseUrl = "https://server-organic-product-2.onrender.com";
+const baseUrl = "https://organic-product.onrender.com";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
